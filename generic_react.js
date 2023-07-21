@@ -1,9 +1,27 @@
-function Mytag(){
+function Yourtag(){
 			return ( 
+				<>
+					<h1></h1>
+
+					<p></p>
+					
+					<h2></h2>
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</>
 
 			)
 		}
 const root = ReactDOM.createRoot(document.getElementById("root"))
-root.render(<Mytag />)
-
-OneDrive/Lambton college/1stTerm/Frontend/project
+root.render(<Yourtag />)
