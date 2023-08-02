@@ -1,7 +1,7 @@
 import logo from './logo.svg';
-import avatar1  from './assets/avatar/1.jpg';
-import avatar2  from './assets/avatar/2.jpg';
-import avatar3  from './assets/avatar/3.jpg';
+import avatar1 from './assets/avatar/1.jpg';
+import avatar2 from './assets/avatar/2.jpg';
+import avatar3 from './assets/avatar/3.jpg';
 import './App.css';
 import * as React from 'react';
 import Box from '@mui/material/Box';
@@ -13,25 +13,25 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 //multiline
 import TextField from '@mui/material/TextField';
-import { withStyles,makeStyles } from '@material-ui/styles';
+import { withStyles, makeStyles } from '@material-ui/styles';
 import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
 //counter
-import  { useState, useEffect }  from "react";
-import { Button, Typography,CardContent,Card } from "@mui/material";
+import { useState, useEffect } from "react";
+import { Button, Typography, CardContent, Card } from "@mui/material";
 import { useSpring, animated } from 'react-spring';
 
 //Swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore from 'swiper';
-import { Navigation, Pagination,Autoplay ,Scrollbar} from 'swiper/modules';
+import { Navigation, Pagination, Autoplay, Scrollbar } from 'swiper/modules';
 import 'swiper/css';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 
 // icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInstagram,faTwitter,faFacebook }  from '@fortawesome/free-brands-svg-icons';
+import { faInstagram, faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 //tabmenu
@@ -40,6 +40,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Slide from '@mui/material/Slide';
+import { Link } from 'react-router-dom';
 
 //tabmenu
 
@@ -60,17 +61,20 @@ function HamburgerMenu() {
   };
 
   return (
-    <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'row-reverse', alignItems: 'center', position: 'relative',padding:'2%',marginRight:'2%'}}>
+    <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'row-reverse', alignItems: 'center', position: 'relative', padding: '2%', marginRight: '2%' }}>
       <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleOpen}>
-      <FontAwesomeIcon icon={faBars} beat size="xl" style={{color: "#ffffff",}} />
+        <FontAwesomeIcon icon={faBars} beat size="xl" style={{ color: "#ffffff", }} />
       </IconButton>
       <Slide direction="left" in={open} mountOnEnter unmountOnExit>
-        <Box sx={{ position: 'absolute', right: 48, top: 0, backgroundColor: 'transparent', zIndex: 1,marginTop:'2%',marginRight:'2%' }}>
+        <Box sx={{ position: 'absolute', right: 48, top: 0, backgroundColor: 'transparent', zIndex: 1, marginTop: '2%', marginRight: '2%' }}>
           <Tabs value={value} onChange={handleChange}>
-            <Tab label="Talents" onClick={handleClose} style={{ color: 'white' }} />
-            <Tab label="About" onClick={handleClose} style={{ color: 'white' }} />
-            <Tab label="Contact" onClick={handleClose} style={{ color: 'white' }} />
-            <Tab label="Help" onClick={handleClose} style={{ color: 'white' }} />
+
+            <Tab label="Home" onClick={handleClose} style={{ color: 'white' }} to="/contact" />
+            <Link style={{ color: 'white' }} className='MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-1h9z7r5-MuiButtonBase-root-MuiTab-root' to='/talents'>Talents</Link>
+            <Link style={{ color: 'white' }} className='MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-1h9z7r5-MuiButtonBase-root-MuiTab-root' to='/contact'>Contact</Link>
+            <Link style={{ color: 'white' }} className='MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-1h9z7r5-MuiButtonBase-root-MuiTab-root' to='/about'>About</Link>
+            <Link style={{ color: 'white' }} className='MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-1h9z7r5-MuiButtonBase-root-MuiTab-root' to='/help'>Help</Link>
+
           </Tabs>
         </Box>
       </Slide>
@@ -80,110 +84,127 @@ function HamburgerMenu() {
 
 
 // Swiper
-SwiperCore.use([Autoplay,Scrollbar]);
+SwiperCore.use([Autoplay, Scrollbar]);
 const comments = [
-  { id: 1, content:  
-   
-  <div class="swiper-slide testimonial-box black">
-  <h1>Perfect job</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad </p>
-  <div class="text-right">
-    <p class="name">- John Doe</p>
-    <p class="designation">Founder, Arrow</p>
-    <Box display="flex" flexDirection="column" alignItems="center">
-    <Avatar alt="Remy Sharp" src={avatar1} sx={{ width: 90, height: 90}}></Avatar>
-    </Box>
-  </div>
-</div>
-},
-  { id: 2, content:<div class="swiper-slide testimonial-box black">
-  <h1>Minimal of time</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad </p>
-  <div class="text-right">
-    <p class="name">- Rocky Hych</p>
-    <p class="designation">CTO, Upside Down</p>
-    <Box display="flex" flexDirection="column" alignItems="center">
-    <Avatar alt="Remy Sharp" src={avatar2} sx={{ width: 90, height: 90}}></Avatar>
-    </Box>
-  </div>
-</div> },
-  { id: 3, content:                   <div class="swiper-slide testimonial-box black">
-  <h1>Perfect Candidate</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad </p>
-  <div class="text-right">
-    <p class="name">- John Doe</p>
-    <p class="designation">Founder, Arrow</p>
-    <Box display="flex" flexDirection="column" alignItems="center">
-    <Avatar alt="Remy Sharp" src={avatar3} sx={{ width: 90, height: 90}}></Avatar>
-    </Box>
-  </div>
-</div> },
-  { id: 4, content:                   <div class="swiper-slide testimonial-box black">
-  <h1>Just Perfect</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad </p>
-  <div class="text-right">
-    <p class="name">- Rocky Hych</p>
-    <p class="designation">CTO, Upside Down</p>
-    <Box display="flex" flexDirection="column" alignItems="center">
-    <Avatar alt="Remy Sharp" src={avatar1} sx={{ width: 90, height: 90}}></Avatar>
-    </Box>
-  </div>
-</div> },
-  { id: 5, content:                   <div class="swiper-slide testimonial-box black">
-  <h1>Amazing response</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad </p>
-  <div class="text-right">
-    <p class="name">- John Doe</p>
-    <p class="designation">Founder, Arrow</p>
-    <Box display="flex" flexDirection="column" alignItems="center">
-    <Avatar alt="Remy Sharp" src={avatar2} sx={{ width: 90, height: 90}}></Avatar>
-    </Box>
-  </div>
-</div> },
-  { id: 6, content:                   <div class="swiper-slide testimonial-box black">
-  <h1>Responsive template</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad </p>
-  <div class="text-right">
-    <p class="name">- Rocky Hych</p>
-    <p class="designation">CTO, Upside Down</p>
-    <Box display="flex" flexDirection="column" alignItems="center">
-    <Avatar alt="Remy Sharp" src={avatar3} sx={{ width: 90, height: 90}}></Avatar>
-    </Box>
-  </div>
-</div> },
-  { id: 7, content:                   <div class="swiper-slide testimonial-box black">
-  <h1>Built with Bootstrap</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad </p>
-  <div class="text-right">
-    <p class="name">- John Doe</p>
-    <p class="designation">Founder, Arrow</p>
-    <Box display="flex" flexDirection="column" alignItems="center">
-    <Avatar alt="Remy Sharp" src={avatar1} sx={{ width: 90, height: 90}}></Avatar>
-    </Box>
-  </div>
-</div> },
-  { id: 8, content:                   <div class="swiper-slide testimonial-box black">
-  <h1>Minimal and Clean</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad </p>
-  <div class="text-right">
-    <p class="name">- Rocky Hych</p>
-    <p class="designation">CTO, Upside Down</p>
-    <Box display="flex" flexDirection="column" alignItems="center">
-    <Avatar alt="Remy Sharp" src={avatar2} sx={{ width: 90, height: 90}}></Avatar>
-    </Box>
-  </div>
-</div> },
-  { id: 9, content:                   <div class="swiper-slide testimonial-box black">
-  <h1>Pixel Perfect design</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad </p>
-  <div class="text-right">
-    <p class="name">- John Doe</p>
-    <p class="designation">Founder, Arrow</p>
-    <Box display="flex" flexDirection="column" alignItems="center">
-    <Avatar alt="Remy Sharp" src={avatar3} sx={{ width: 90, height: 90}}></Avatar>
-    </Box>
-  </div>
-</div> },
+  {
+    id: 1, content:
+
+      <div class="swiper-slide testimonial-box black">
+        <h1>Perfect job</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad </p>
+        <div class="text-right">
+          <p class="name">- John Doe</p>
+          <p class="designation">Founder, Arrow</p>
+          <Box display="flex" flexDirection="column" alignItems="center">
+            <Avatar alt="Remy Sharp" src={avatar1} sx={{ width: 90, height: 90 }}></Avatar>
+          </Box>
+        </div>
+      </div>
+  },
+  {
+    id: 2, content: <div class="swiper-slide testimonial-box black">
+      <h1>Minimal of time</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad </p>
+      <div class="text-right">
+        <p class="name">- Rocky Hych</p>
+        <p class="designation">CTO, Upside Down</p>
+        <Box display="flex" flexDirection="column" alignItems="center">
+          <Avatar alt="Remy Sharp" src={avatar2} sx={{ width: 90, height: 90 }}></Avatar>
+        </Box>
+      </div>
+    </div>
+  },
+  {
+    id: 3, content: <div class="swiper-slide testimonial-box black">
+      <h1>Perfect Candidate</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad </p>
+      <div class="text-right">
+        <p class="name">- John Doe</p>
+        <p class="designation">Founder, Arrow</p>
+        <Box display="flex" flexDirection="column" alignItems="center">
+          <Avatar alt="Remy Sharp" src={avatar3} sx={{ width: 90, height: 90 }}></Avatar>
+        </Box>
+      </div>
+    </div>
+  },
+  {
+    id: 4, content: <div class="swiper-slide testimonial-box black">
+      <h1>Just Perfect</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad </p>
+      <div class="text-right">
+        <p class="name">- Rocky Hych</p>
+        <p class="designation">CTO, Upside Down</p>
+        <Box display="flex" flexDirection="column" alignItems="center">
+          <Avatar alt="Remy Sharp" src={avatar1} sx={{ width: 90, height: 90 }}></Avatar>
+        </Box>
+      </div>
+    </div>
+  },
+  {
+    id: 5, content: <div class="swiper-slide testimonial-box black">
+      <h1>Amazing response</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad </p>
+      <div class="text-right">
+        <p class="name">- John Doe</p>
+        <p class="designation">Founder, Arrow</p>
+        <Box display="flex" flexDirection="column" alignItems="center">
+          <Avatar alt="Remy Sharp" src={avatar2} sx={{ width: 90, height: 90 }}></Avatar>
+        </Box>
+      </div>
+    </div>
+  },
+  {
+    id: 6, content: <div class="swiper-slide testimonial-box black">
+      <h1>Responsive template</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad </p>
+      <div class="text-right">
+        <p class="name">- Rocky Hych</p>
+        <p class="designation">CTO, Upside Down</p>
+        <Box display="flex" flexDirection="column" alignItems="center">
+          <Avatar alt="Remy Sharp" src={avatar3} sx={{ width: 90, height: 90 }}></Avatar>
+        </Box>
+      </div>
+    </div>
+  },
+  {
+    id: 7, content: <div class="swiper-slide testimonial-box black">
+      <h1>Built with Bootstrap</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad </p>
+      <div class="text-right">
+        <p class="name">- John Doe</p>
+        <p class="designation">Founder, Arrow</p>
+        <Box display="flex" flexDirection="column" alignItems="center">
+          <Avatar alt="Remy Sharp" src={avatar1} sx={{ width: 90, height: 90 }}></Avatar>
+        </Box>
+      </div>
+    </div>
+  },
+  {
+    id: 8, content: <div class="swiper-slide testimonial-box black">
+      <h1>Minimal and Clean</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad </p>
+      <div class="text-right">
+        <p class="name">- Rocky Hych</p>
+        <p class="designation">CTO, Upside Down</p>
+        <Box display="flex" flexDirection="column" alignItems="center">
+          <Avatar alt="Remy Sharp" src={avatar2} sx={{ width: 90, height: 90 }}></Avatar>
+        </Box>
+      </div>
+    </div>
+  },
+  {
+    id: 9, content: <div class="swiper-slide testimonial-box black">
+      <h1>Pixel Perfect design</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad </p>
+      <div class="text-right">
+        <p class="name">- John Doe</p>
+        <p class="designation">Founder, Arrow</p>
+        <Box display="flex" flexDirection="column" alignItems="center">
+          <Avatar alt="Remy Sharp" src={avatar3} sx={{ width: 90, height: 90 }}></Avatar>
+        </Box>
+      </div>
+    </div>
+  },
 
 ];
 const SwiperIndex = () => {
@@ -215,9 +236,9 @@ const SwiperIndex = () => {
     >
       {comments.map((comment) => (
         <SwiperSlide key={comment.id}>
-          <Card sx={{ }}>
+          <Card sx={{}}>
             <CardContent>
-            {comment.content}
+              {comment.content}
             </CardContent>
           </Card>
         </SwiperSlide>
@@ -358,36 +379,36 @@ function MultilineTextFields() {
     <Box
       component="form"
       sx={{
-        '& .MuiTextField-root': {  width: '70%' },
+        '& .MuiTextField-root': { width: '70%' },
       }}
       noValidate
       autoComplete="off"
-    >  
-        <CssTextField
-          id="outlined-multiline-static"
-          label="Job Description"
-          multiline
-          rows={4}
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end" >
-                <Button
-                  sx={{
-                    backgroundColor: 'black',
-                    color: 'white',
+    >
+      <CssTextField
+        id="outlined-multiline-static"
+        label="Job Description"
+        multiline
+        rows={4}
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end" >
+              <Button
+                sx={{
+                  backgroundColor: 'black',
+                  color: 'white',
+                  border: '1px solid black',
+                  ':hover': {
+                    bgcolor: 'white',
+                    color: 'black',
                     border: '1px solid black',
-                    ':hover': {
-                      bgcolor: 'white',
-                      color: 'black',
-                      border: '1px solid black',
-                    }
-                  }} variant="outlined" startIcon={<SearchIcon />}>
-                  find
-                </Button>
-              </InputAdornment>
-            ),
-          }}
-        />
+                  }
+                }} variant="outlined" startIcon={<SearchIcon />}>
+                find
+              </Button>
+            </InputAdornment>
+          ),
+        }}
+      />
     </Box>
   );
 }
@@ -398,12 +419,12 @@ function SimpleContainer() {
     <React.Fragment>
       <CssBaseline />
       <Container >
-        <Box sx={{ bgcolor: 'white'}} />
+        <Box sx={{ bgcolor: 'white' }} />
         <div class="container">
           <div class="row">
             <div class="col-md-12">
               <h1 class="heading black"><span class="black">Find</span> The Best Talents</h1>
-           <MultilineTextFields/>
+              <MultilineTextFields />
             </div>
           </div>
         </div>
@@ -417,7 +438,7 @@ function FloatingActionButtonExtendedSize() {
   return (
     <Box sx={{ '& > :not(style)': { m: 1 } }}>
       <Fab variant="extended" color="black" aria-label="add" font-color="white">
-       More about us
+        More about us
       </Fab>
     </Box>
   );
@@ -431,7 +452,7 @@ function App() {
           <div class="row">
             <div class="col-md-6 col-md-offset-6 col-xs-12">
 
-                <HamburgerMenu/>
+              <HamburgerMenu />
 
               <div class="hero-text">
                 <h1><span>Talents</span>Finder</h1>
@@ -439,9 +460,9 @@ function App() {
                 <FloatingActionButtonExtendedSize />
                 <ul class="social-links">
                   <li class="label">Join us &nbsp; </li>
-                  <FontAwesomeIcon icon={faFacebook} beatFade size="lg" style={{color: "#ffffff",}} />&nbsp;
-                  <FontAwesomeIcon icon={faTwitter} beatFade size="lg" style={{color: "#ffffff",}} />&nbsp;
-                  <FontAwesomeIcon icon={faInstagram} beatFade size="lg" style={{color: "#ffffff" }} />
+                  <FontAwesomeIcon icon={faFacebook} beatFade size="lg" style={{ color: "#ffffff", }} />&nbsp;
+                  <FontAwesomeIcon icon={faTwitter} beatFade size="lg" style={{ color: "#ffffff", }} />&nbsp;
+                  <FontAwesomeIcon icon={faInstagram} beatFade size="lg" style={{ color: "#ffffff" }} />
                 </ul>
 
               </div>
@@ -450,7 +471,7 @@ function App() {
         </div>
       </header>
       <section class="case-study">
-      <SimpleContainer />
+        <SimpleContainer />
       </section>
 
       <section class="testimonial">
@@ -466,7 +487,7 @@ function App() {
             <div class="col-md-12">
               <div class="swiper-container testimonial-swiper">
                 <div class="swiper-wrapper">
-                <SwiperIndex/>  
+                  <SwiperIndex />
                 </div>
                 <div class="swiper-pagination"></div>
               </div>
@@ -479,25 +500,25 @@ function App() {
           <Box component="div"
             sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}   >
             <div class="col-md-4 text-center stat-box">
-              <Counter1/>  
+              <Counter1 />
               <h3>Candidates</h3>
-            </div> 
-            </Box>
-            <Box component="div"
+            </div>
+          </Box>
+          <Box component="div"
             sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}   >
             <div class="col-md-4 text-center stat-box">
-             <Counter2/>
+              <Counter2 />
               <h3>Jobs</h3>
-            </div>   
-            </Box>
-            <Box component="div"
+            </div>
+          </Box>
+          <Box component="div"
             sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}   >
             <div class="col-md-4 text-center stat-box">
-             <Counter3/>
+              <Counter3 />
               <h3>Companies</h3>
-            </div>   
-            </Box>
-          </div>
+            </div>
+          </Box>
+        </div>
       </section>
       <footer>
         <div class="container-fluid">
@@ -506,8 +527,8 @@ function App() {
             <div class="col-md-12 text-center">
               <p>Follow us on social media: </p>
               <Facebook className="icon" />
-          <Twitter className="icon" />
-          <Instagram className="icon" />
+              <Twitter className="icon" />
+              <Instagram className="icon" />
             </div>
           </div>
         </div>
@@ -519,9 +540,9 @@ function App() {
 export default App;
 export { FloatingActionButtonExtendedSize };
 export { SimpleContainer };
-export { MultilineTextFields};
-export { Counter1}
-export { Counter2}
-export { Counter3}
-export { SwiperIndex}
-export {HamburgerMenu}
+export { MultilineTextFields };
+export { Counter1 }
+export { Counter2 }
+export { Counter3 }
+export { SwiperIndex }
+export { HamburgerMenu }
