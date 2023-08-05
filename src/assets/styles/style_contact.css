@@ -1,17 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Finger+Paint&family=Fredoka&family=Lora:ital@1&family=Quicksand:wght@300&family=Syne+Mono&family=Titillium+Web:wght@300&family=Yanone+Kaffeesatz:wght@300&display=swap");
-* {
+.contact-form * {
   box-sizing: border-box;
 }
-textarea {
+.contact-form textarea {
   resize: none;
 }
-body {
+.contact-form {
   font-family: "Quicksand", sans-serif;
   padding: 0 1.5em;
 }
-p {
-}
-.content {
+
+.contact-content {
   max-width: 1170px;
   margin-left: auto;
   margin-right: auto;
@@ -19,12 +18,12 @@ p {
   box-shadow: 0 0 20px rgba(43, 42, 42, 0.3);
 }
 
-.title {
+.contact-title {
   text-align: center;
   font-size: 3em;
 }
 
-.content > * {
+.contact-content > * {
   padding: 1em;
 }
 
@@ -53,10 +52,7 @@ p {
 
 /*Large Screens*/
 @media (min-width: 700px) {
-  body {
-    padding: 0 4rem;
-  }
-  textarea {
+  .contact-form textarea {
     height: 250px;
   }
   .contact-form form {
@@ -64,7 +60,7 @@ p {
     grid-template-columns: 1fr 1fr;
     gap: 30px;
   }
-  .block {
+  .contact-form .block {
     grid-column: 1/3;
   }
 

@@ -1,8 +1,8 @@
 import "../assets/styles/style_about.css"
-export const About = () => {
+const About = () => {
   return (
     <>
-      <h1>ABOUT US</h1>
+      <h1 className="about-title">ABOUT US</h1>
 
       <div className="video">
         <iframe
@@ -38,4 +38,6 @@ export const About = () => {
       </div>
     </>
   )
-}
+};
+
+export default About;

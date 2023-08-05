@@ -1,9 +1,11 @@
+import React from "react";
 import "../assets/styles/style_contact.css"
-export const Contact = () => {
+
+const Contact = () => {
   return (
     <>
-      <h1 className="title">Contact Us</h1>
-      <div className="content">
+      <h1 className="contact-title">Contact Us</h1>
+      <div className="contact-content">
         <div className="contact-form">
           <form>
             <div className="column1">
@@ -40,4 +42,6 @@ export const Contact = () => {
       </div>
     </>
   )
-}
+};
+
+export default Contact;
