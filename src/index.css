@@ -1,12 +1,11 @@
-
-
- body {
+body {
   font-family: 'Open Sans', sans-serif;
   background-color: #f2f2f2;
   font-size: 16px;
   color: #222;
   font-weight: normal;
   letter-spacing: 0.03em;
+  margin: 0;
 }
 a {
   color: #7447ae;
@@ -225,14 +224,17 @@ h1.heading.pink:after {
   left: -40px;
 }
 .container-fluid {
-  padding-right: 1%;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+  margin-right: 0;
+  margin-left: 0;
   background-color: #fff;
-
 }
-
+/* Talents */
+.talent {
+}
+.talents {
+  border:'1px solid #ccc';
+  borderRadius: '8px';
+}
 /* Testimonial */
 .testimonial-box {
 
