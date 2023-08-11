@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import IconButton from '@mui/material/IconButton';
+import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';;
 
 const TalentsBox = ({id}) => {
   const [data, setData] = useState([]);
@@ -22,10 +24,15 @@ const TalentsBox = ({id}) => {
       <div className="data-content">
         {data.map(item => (
           <div key={item.id}>
-            <h2>{item.name}</h2>
+            <div>
+              <h2>{item.name}</h2>
+            </div>
             <p>Category: {item.category}</p>
             <p>Knowledge: {item.knowledge}</p>
             <p>Field: {item.field}</p>
+              <IconButton id="talent-box-pdf" onClick={() => handleDownload(item.pdf)}>
+                <PictureAsPdfIcon style={{ color: '#a21e1e'}}/>
+              </IconButton>
           </div>
         ))}
       </div>
@@ -33,3 +40,8 @@ const TalentsBox = ({id}) => {
   );
 };
 export default TalentsBox;
+
+
+const handleDownload = (url) => {
+  window.open(url, '_blank');
+};

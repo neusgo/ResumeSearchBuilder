@@ -1,40 +1,49 @@
 import "../assets/styles/style_help.css";
-import React, { useState } from 'react';
 import TalentBox from "../Components/TalentBox";
-import Search from "../Components/Search";
-import { Link } from "react-router-dom";
-import { CardContent, Card, Grid } from "@mui/material";
-import Avatar from "@mui/material/Avatar";
-import Box from "@mui/material/Box";
-import { styled } from "@mui/material/styles";
-import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
-import MuiAccordion from "@mui/material/Accordion";
-import MuiAccordionSummary from "@mui/material/AccordionSummary";
-import MuiAccordionDetails from "@mui/material/AccordionDetails";
+import {    
+          CardContent, 
+          Card,
+          InputAdornment,
+          Button
+        } from "@mui/material";
 import Typography from "@mui/material/Typography";
-import { help_cards, faqs } from "../constant";
 
 
 const Talents = () => {
   const talentIds = [1, 2, 3, 4, 5];
+  const handleClick = () => {
+    // Your button click logic here
+    console.log('Button clicked');
+  };
   //const [id, setId] = useState(8); // Initial id
   return (
     <>
-     {talentIds.map(id => (
-          <Card class="talent">
-            <CardContent>
-              <Typography variant="h5" component="div">
-              </Typography>
-              <Typography variant="body2">
+      <div>
+        <h2 id="talent-title">Job description</h2>
+      </div>
+      <div className= "talents-container">
+       <div className="talent search">
+         <textarea name="finder" id="talent-text" cols="30" rows="10"></textarea>
+         <Button id="talent-button" variant="contained" color="primary" onClick={handleClick}>
+          Find
+        </Button>
+       </div>
+       <div className= "talents-container">
+       {talentIds.map(id => (
+            <Card className="talent" key={id}>
+              <CardContent>
+                <Typography variant="h5" component="div">
+                </Typography>
+                <div>
                   <TalentBox id={id} />
-              </Typography>
-            </CardContent>
-          </Card>
-      ))}
+                </div>
+              </CardContent>
+            </Card>
+        ))}
+        </div>
+      </div>
     </>
   );
 };
-
-
 
 export default Talents;
